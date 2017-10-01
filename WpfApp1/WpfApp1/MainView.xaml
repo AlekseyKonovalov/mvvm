@@ -1,0 +1,92 @@
+﻿<Window
+    x:Class="WpfApp1.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Title}"
+    Width="525"
+    Height="350"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainViewViewModel />
+    </Window.DataContext>
+    <Grid>
+        <TextBlock
+            x:Name="textBlock"
+            Margin="212,73,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="+"
+            TextWrapping="Wrap" />
+        <TextBox
+            x:Name="textBox"
+            Width="49"
+            Height="23"
+            Margin="158,72,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding X}"
+            TextWrapping="Wrap" />
+        <TextBox
+            x:Name="textBox2"
+            Width="49"
+            Height="23"
+            Margin="225,72,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding Y}"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock2"
+            Margin="279,73,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="="
+            TextWrapping="Wrap" />
+        <TextBox
+            x:Name="textBox3"
+            Width="49"
+            Height="23"
+            Margin="292,72,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            IsReadOnly="True"
+            Text="{Binding Z}"
+            TextWrapping="Wrap" />
+        <Button
+            x:Name="button"
+            Width="75"
+            Margin="366,75,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding Calc}"
+            Content="Calc" />
+
+        <ListView
+            x:Name="listView"
+            Width="191"
+            Height="101"
+            Margin="158,132,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            ItemsSource="{Binding Books}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Pages}" Header="Pages" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button
+            x:Name="button1"
+            Width="75"
+            Margin="375,132,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding Add}"
+            Content="Add" />
+
+    </Grid>
+</Window>
